@@ -3,12 +3,15 @@ import React from "react";
 import categories from "../data/categories.json";
 import CategoryItem from "./CategoryItem";
 
-const Categories = () => {
+const Categories = ({onSelectCategory}) => {
   return (
     <View style={styles.container}>
       <FlatList
         style={styles.container}
-        renderItem={({ item }) => <CategoryItem category={item} />}
+        renderItem={({ item }) => <CategoryItem 
+          category={item} 
+          onSelectCategory= {onSelectCategory}
+          />}
         data={categories}
         keyExtractor={(category) => category}
       />
@@ -20,7 +23,6 @@ export default Categories;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     width: "100%",
   },
 });
